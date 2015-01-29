@@ -14,5 +14,16 @@
             var duration = new Duration(totalSeconds);
             duration.Display.ShouldEqual(expectedDisplay);
         }
+
+        [Input(1, 1, "0:02")]
+        [Input(0, 0, "0:00")]
+        [Input(65, 63, "2:08")]
+        [Input(65, 0, "1:05")]
+        public void Should_sum_durations(int totalSecondsA, int totalSecondsB, string expectedSumDisplay)
+        {
+            var durationA = new Duration(totalSecondsA);
+            var durationB = new Duration(totalSecondsB);
+            (durationA + durationB).Display.ShouldEqual(expectedSumDisplay);
+        }
     }
 }
