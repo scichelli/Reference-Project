@@ -2,22 +2,23 @@
 {
     public class Duration
     {
+        private readonly int _minutes;
+        private readonly int _seconds;
+
         public Duration(int totalSeconds)
         {
             TotalSeconds = totalSeconds;
 
             const int secondsPerMinute = 60;
-            Minutes = totalSeconds/secondsPerMinute;
-            Seconds = totalSeconds%secondsPerMinute;
+            _minutes = totalSeconds/secondsPerMinute;
+            _seconds = totalSeconds%secondsPerMinute;
         }
 
-        public int Minutes { get; private set; }
-        public int Seconds { get; private set; }
         public int TotalSeconds { get; private set; }
 
         public string Display
         {
-            get { return string.Format("{0:0}:{1:00}", Minutes, Seconds); }
+            get { return string.Format("{0:0}:{1:00}", _minutes, _seconds); }
         }
 
         public static Duration operator +(Duration a, Duration b)
