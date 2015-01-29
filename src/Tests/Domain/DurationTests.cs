@@ -25,5 +25,13 @@
             var durationB = new Duration(totalSecondsB);
             (durationA + durationB).Display.ShouldEqual(expectedSumDisplay);
         }
+
+        public void Should_add_durations()
+        {
+            var durationA = new Duration(30);
+            var durationB = new Duration(45);
+            int sum = durationA + durationB;
+            sum.ShouldEqual(30 + 45);
+        }
     }
 }

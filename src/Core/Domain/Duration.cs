@@ -25,5 +25,10 @@
         {
             return new Duration(a.TotalSeconds + b.TotalSeconds);
         }
+
+        public static implicit operator int(Duration duration)
+        {
+            return duration.TotalSeconds;
+        }
     }
 }
