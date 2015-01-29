@@ -14,7 +14,7 @@
 
         public Duration GetDuration()
         {
-            return new Duration(Chapters.Sum(x => x.Duration));
+            return Chapters.Sum(x => x.Duration);
         }
     }
 

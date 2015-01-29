@@ -30,5 +30,10 @@
         {
             return duration.TotalSeconds;
         }
+
+        public static implicit operator Duration(int totalSeconds)
+        {
+            return new Duration(totalSeconds);
+        }
     }
 }
