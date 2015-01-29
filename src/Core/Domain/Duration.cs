@@ -17,7 +17,7 @@
 
         public string Display
         {
-            get { return string.Format("{0}:{1}", Minutes, Seconds); }
+            get { return string.Format("{0:0}:{1:00}", Minutes, Seconds); }
         }
 
         public static Duration operator +(Duration a, Duration b)
