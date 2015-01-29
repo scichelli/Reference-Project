@@ -5,7 +5,10 @@
         public Duration(int totalSeconds)
         {
             TotalSeconds = totalSeconds;
-            //math to split seconds into minutes and seconds
+
+            const int secondsPerMinute = 60;
+            Minutes = totalSeconds/secondsPerMinute;
+            Seconds = totalSeconds%secondsPerMinute;
         }
 
         public int Minutes { get; private set; }
