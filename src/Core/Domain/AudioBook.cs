@@ -16,6 +16,11 @@
         {
             return Chapters.Sum(x => x.Duration);
         }
+
+        public void AddChapter(int durationTotalSeconds)
+        {
+            Chapters.Add(new AudioChapter(new Duration(durationTotalSeconds)));
+        }
     }
 
     public class AudioChapter
