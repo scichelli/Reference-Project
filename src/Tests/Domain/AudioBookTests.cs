@@ -6,6 +6,13 @@
 
     public class AudioBookTests
     {
+        private Fixture _fixture;
+
+        public AudioBookTests()
+        {
+            _fixture = new Fixture();
+        }
+
         public void Should_sum_chapter_durations_to_find_book_duration()
         {
             var book = new AudioBook();
@@ -18,10 +25,8 @@
 
         public void Should_put_many_chapters_in_a_book()
         {
-            var fixture = new Fixture();
-
             var book = new AudioBook();
-            fixture.AddManyTo(book.Chapters);
+            _fixture.AddManyTo(book.Chapters);
             book.GetDuration().TotalSeconds.ShouldBeGreaterThan(0);
         }
     }
