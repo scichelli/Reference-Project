@@ -35,6 +35,9 @@
     <Reference Include="Fixie">
       <HintPath>..\packages\Fixie.1.0.0.1\lib\net45\Fixie.dll</HintPath>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\packages\AutoFixture.3.23.0\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
     <Reference Include="Should">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
