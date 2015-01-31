@@ -1,9 +1,11 @@
 ﻿namespace Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using Fixie;
+    using Ploeh.AutoFixture.Kernel;
 
     public class CustomConvention : Convention
     {
@@ -16,8 +18,26 @@
                 .Where(method => method.IsVoid());
 
             Parameters
-                .Add(method => method.GetCustomAttributes<InputAttribute>(true)
-                    .Select(input => input.Parameters));
+                .Add<AutoFilled>();
+        }
+    }
+
+    public class AutoFilled : ParameterSource
+    {
+        public IEnumerable<object[]> GetParameters(MethodInfo method)
+        {
+            if (method.HasOrInherits<InputAttribute>())
+            {
+                return method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters);
+            }
+            var fixture = new Ploeh.AutoFixture.Fixture();
+            return new[] { method.GetParameters().Select(p => Resolve(p, fixture)).ToArray() };
+        }
+
+        private object Resolve(ParameterInfo p, Ploeh.AutoFixture.Fixture fixture)
+        {
+            var context = new SpecimenContext(fixture);
+            return context.Resolve(p);
         }
     }
 

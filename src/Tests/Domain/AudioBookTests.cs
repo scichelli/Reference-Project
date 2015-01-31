@@ -1,18 +1,11 @@
 ﻿namespace Tests.Domain
 {
     using Core.Domain;
-    using Should;
     using Ploeh.AutoFixture;
+    using Should;
 
     public class AudioBookTests
     {
-        private Fixture _fixture;
-
-        public AudioBookTests()
-        {
-            _fixture = new Fixture();
-        }
-
         public void Should_sum_chapter_durations_to_find_book_duration()
         {
             var book = new AudioBook();
@@ -23,10 +16,10 @@
             book.GetDuration().Display.ShouldEqual("2:58");
         }
 
-        public void Should_put_many_chapters_in_a_book()
+        public void Should_put_many_chapters_in_a_book(AudioBook book)
         {
-            var book = new AudioBook();
-            _fixture.AddManyTo(book.Chapters);
+            var fixture = new Fixture();
+            fixture.AddManyTo(book.Chapters);
             book.GetDuration().TotalSeconds.ShouldBeGreaterThan(0);
         }
     }
