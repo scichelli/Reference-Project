@@ -35,6 +35,9 @@
     <Reference Include="Fixie">
       <HintPath>..\packages\Fixie.1.0.0.1\lib\net45\Fixie.dll</HintPath>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\packages\AutoFixture.3.23.0\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
     <Reference Include="Should">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
@@ -50,6 +53,7 @@
     <Compile Include="CustomConvention.cs" />
     <Compile Include="Domain\AudioBookTests.cs" />
     <Compile Include="Domain\DurationTests.cs" />
+    <Compile Include="Infrastructure\AutoFilledParameterSourceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +65,7 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
