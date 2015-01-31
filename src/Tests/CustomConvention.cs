@@ -30,8 +30,13 @@
             {
                 return method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters);
             }
+
             var fixture = new Ploeh.AutoFixture.Fixture();
-            return new[] { method.GetParameters().Select(p => Resolve(p, fixture)).ToArray() };
+            var filledParameters = method.GetParameters().Select(p => Resolve(p, fixture)).ToArray();
+            if (filledParameters.Any())
+                return new[] { filledParameters };
+            
+            return Enumerable.Empty<object[]>();
         }
 
         private object Resolve(ParameterInfo p, Ploeh.AutoFixture.Fixture fixture)
