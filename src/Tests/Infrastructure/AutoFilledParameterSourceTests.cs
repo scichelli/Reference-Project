@@ -46,6 +46,31 @@
             }
         }
 
+        public void Should_use_AutoFixture_after_running_out_of_InputAttribute_parameters()
+        {
+            var parametersInTheSet = ParameterSetsFrom("HasMoreParametersThanTheInputAttribute").Single();
+            parametersInTheSet.Count().ShouldEqual(3);
+            parametersInTheSet.ElementAt(0).ShouldEqual("something");
+            parametersInTheSet.ElementAt(1).ShouldBeGreaterThan(0);
+            parametersInTheSet.ElementAt(2).ShouldNotBeNull();
+        }
+
+        public void Should_handle_InputAttributes_with_differing_numbers_of_parameters()
+        {
+            var sets = ParameterSetsFrom("HasTheInputAttributesWithDifferentNumbersOfParameters").ToArray();
+            sets.Count().ShouldEqual(2);
+
+            var oneInputParameter = sets.Single(s => s.ElementAt(0).Equals("has one"));
+            oneInputParameter.Count().ShouldEqual(3);
+            oneInputParameter.ElementAt(1).ShouldBeGreaterThan(0);
+            oneInputParameter.ElementAt(2).ShouldNotBeNull();
+
+            var twoInputParameters = sets.Single(s => s.ElementAt(0).Equals("has two"));
+            twoInputParameters.Count().ShouldEqual(3);
+            twoInputParameters.ElementAt(1).ShouldEqual(30345);
+            twoInputParameters.ElementAt(2).ShouldNotBeNull();
+        }
+
         private void HasNoParameters() { }
 
         private void HasThreeParametersAndNoAttributes(string first, int second, AudioBook third) { }
@@ -57,6 +82,13 @@
         [Input("Aurora")]
         [Input("Agatha")]
         private void HasOneParameterAndThreeInputAttributes(string kitty) { }
+
+        [Input("something")]
+        private void HasMoreParametersThanTheInputAttribute(string first, int second, AudioBook third) { }
+
+        [Input("has one")]
+        [Input("has two", 30345)]
+        private void HasTheInputAttributesWithDifferentNumbersOfParameters(string first, int second, AudioBook third) { }
 
         private IEnumerable<object[]> ParameterSetsFrom(string name)
         {

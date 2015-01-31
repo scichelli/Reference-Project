@@ -35,15 +35,42 @@
             return NoParameterSets();
         }
 
-        private static IEnumerable<object[]> ParameterSetsFilledFromInputAttributes(MethodInfo method)
+        private IEnumerable<object[]> ParameterSetsFilledFromInputAttributes(MethodInfo method)
         {
-            return method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters);
+            var sets = new List<object[]>();
+            var parametersToFill = method.GetParameters();
+            var numberOfParametersToFill = parametersToFill.Count();
+
+            var inputAttributes = method.GetCustomAttributes<InputAttribute>(true);
+            foreach (var inputAttribute in inputAttributes)
+            {
+                var filledParameters = new List<object>();
+
+                var providedParameters = inputAttribute.Parameters;
+                var numberOfProvidedParameters = providedParameters.Count();
+
+                filledParameters.AddRange(providedParameters);
+
+                if (numberOfProvidedParameters < numberOfParametersToFill)
+                {
+                    filledParameters.AddRange(ParametersFilledByAutoFixture(parametersToFill.Skip(numberOfProvidedParameters)));
+                }
+
+                sets.Add(filledParameters.ToArray());
+            }
+
+            return sets;
         }
 
         private IEnumerable<object[]> ParameterSetFilledByAutoFixture(MethodInfo method)
         {
+            return new[] { ParametersFilledByAutoFixture(method.GetParameters()) };
+        }
+
+        private object[] ParametersFilledByAutoFixture(IEnumerable<ParameterInfo> parameters)
+        {
             var fixture = new Ploeh.AutoFixture.Fixture();
-            return new[] {method.GetParameters().Select(p => Resolve(p, fixture)).ToArray()};
+            return parameters.Select(p => Resolve(p, fixture)).ToArray();
         }
 
         private static IEnumerable<object[]> NoParameterSets()
