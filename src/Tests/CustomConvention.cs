@@ -27,15 +27,27 @@
         public IEnumerable<object[]> GetParameters(MethodInfo method)
         {
             if (method.HasOrInherits<InputAttribute>())
-            {
-                return method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters);
-            }
+                return ParameterSetsFilledFromInputAttributes(method);
 
+            if (method.GetParameters().Any())
+                return ParameterSetFilledByAutoFixture(method);
+
+            return NoParameterSets();
+        }
+
+        private static IEnumerable<object[]> ParameterSetsFilledFromInputAttributes(MethodInfo method)
+        {
+            return method.GetCustomAttributes<InputAttribute>(true).Select(input => input.Parameters);
+        }
+
+        private IEnumerable<object[]> ParameterSetFilledByAutoFixture(MethodInfo method)
+        {
             var fixture = new Ploeh.AutoFixture.Fixture();
-            var filledParameters = method.GetParameters().Select(p => Resolve(p, fixture)).ToArray();
-            if (filledParameters.Any())
-                return new[] { filledParameters };
-            
+            return new[] {method.GetParameters().Select(p => Resolve(p, fixture)).ToArray()};
+        }
+
+        private static IEnumerable<object[]> NoParameterSets()
+        {
             return Enumerable.Empty<object[]>();
         }
 
