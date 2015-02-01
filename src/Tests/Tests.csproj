@@ -55,6 +55,9 @@
     <Compile Include="Domain\AudioBookTests.cs" />
     <Compile Include="Domain\DurationTests.cs" />
     <Compile Include="Infrastructure\AutoFilledParameterSourceTests.cs" />
+    <Compile Include="Infrastructure\IsbnGeneratorTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

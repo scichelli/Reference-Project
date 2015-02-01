@@ -15,6 +15,15 @@
 
             Parameters
                 .Add<AutoFilled>();
+
+            CaseExecution
+                .Skip(DeveloperToolsWhenRunningTheWholeSuite);
+        }
+
+        private bool DeveloperToolsWhenRunningTheWholeSuite(Case testCase)
+        {
+            var isDeveloperTool = testCase.Method.Has<DeveloperToolAttribute>();
+            return isDeveloperTool && TargetMember != testCase.Method;
         }
     }
 
@@ -27,5 +36,10 @@
         }
 
         public object[] Parameters { get; private set; }
+    }
+
+    [AttributeUsage(AttributeTargets.Method, Inherited = false)]
+    public class DeveloperToolAttribute : Attribute
+    {
     }
 }
