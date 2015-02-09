@@ -1,4 +1,4 @@
-﻿namespace Tests.Infrastructure
+﻿namespace Headspring.Labs.Tests.Infrastructure
 {
     using System.Collections.Generic;
     using System.Linq;

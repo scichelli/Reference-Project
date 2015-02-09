@@ -1,4 +1,4 @@
-namespace Tests
+namespace Headspring.Labs.Tests
 {
     using System.Collections.Generic;
     using System.Linq;

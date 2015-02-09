@@ -1,4 +1,4 @@
-﻿namespace Core.Domain
+﻿namespace Headspring.Labs.Core.Domain
 {
     using System.Collections.Generic;
     using System.Linq;

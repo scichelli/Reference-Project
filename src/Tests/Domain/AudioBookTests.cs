@@ -1,4 +1,4 @@
-﻿namespace Tests.Domain
+﻿namespace Headspring.Labs.Tests.Domain
 {
     using Core.Domain;
     using Ploeh.AutoFixture;
