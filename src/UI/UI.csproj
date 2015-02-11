@@ -87,6 +87,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\style.css" />
     <Content Include="packages.config" />
     <Content Include="Features\_ViewStart.cshtml" />
     <Content Include="Features\Shared\_Layout.cshtml" />
