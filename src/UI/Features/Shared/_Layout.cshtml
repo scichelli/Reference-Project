@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    @RenderSection("css", false)
+    <!-- endbuild -->
+    <!--[if lte IE 9]>
+        <link href="~/Content/css/ie.css" rel="stylesheet">
+    <![endif]-->
+</head>
+    <body>
+        <h1>My Reading Collection</h1>
+        <h2>@ViewBag.Title</h2>
+        @RenderBody()
+    </body>
+</html>
