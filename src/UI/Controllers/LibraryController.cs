@@ -19,5 +19,16 @@
             };
             return View(viewModel);
         }
+
+        public ViewResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(AddEditViewModel model)
+        {
+            return RedirectToAction("Index");
+        }
     }
 }

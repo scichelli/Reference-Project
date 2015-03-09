@@ -113,6 +113,7 @@
     <Content Include="Features\Home\Index.cshtml" />
     <Content Include="Features\Web.config" />
     <Content Include="Features\Library\Index.cshtml" />
+    <Content Include="Features\Library\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,6 +139,7 @@
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
     <Compile Include="Extensions\FeatureViewLocationRazorViewEngine.cs" />
+    <Compile Include="Features\Library\AddEditViewModel.cs" />
     <Compile Include="Features\Library\IndexViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

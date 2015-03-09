@@ -1,0 +1,9 @@
+﻿@model Headspring.Labs.UI.Features.Library.AddEditViewModel
+
+@{ ViewBag.Title = "Add Title";}
+
+@using (Html.BeginForm())
+{
+    <p>@Html.TextBoxFor(m => m.Title)</p>
+    <p><input type="submit" value="Submit"/> @Html.ActionLink("Cancel", "Index")</p>
+}

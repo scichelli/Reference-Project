@@ -2,6 +2,8 @@
 
 @{ ViewBag.Title = "Library";}
 
+@Html.ActionLink("Add", "Add")
+
 <ul>
     @foreach (var book in Model.Books)
     {
