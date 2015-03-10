@@ -6,7 +6,12 @@
 
     public class LibraryController : Controller
     {
-        private static readonly ISession _session = new InMemorySession();
+        private readonly ISession _session;
+
+        public LibraryController(ISession session)
+        {
+            _session = session;
+        }
 
         public ViewResult Index()
         {

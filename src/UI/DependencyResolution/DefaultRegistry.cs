@@ -16,6 +16,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Headspring.Labs.UI.DependencyResolution {
+    using Core.Persistence;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	
@@ -27,9 +28,9 @@ namespace Headspring.Labs.UI.DependencyResolution {
                 scan => {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
-					scan.With(new ControllerConvention());
+                    scan.With(new ControllerConvention());
                 });
-            //For<IExample>().Use<Example>();
+            For<ISession>().Use<InMemorySession>().Singleton();
         }
 
         #endregion
