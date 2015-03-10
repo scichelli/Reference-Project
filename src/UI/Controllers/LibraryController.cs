@@ -1,13 +1,14 @@
 ﻿namespace Headspring.Labs.UI.Controllers
 {
     using System.Web.Mvc;
+    using Core.Persistence;
     using Features.Library;
 
     public class LibraryController : Controller
     {
         public ViewResult Index()
         {
-            var viewModel = new IndexHandler().Handle(new IndexQuery());
+            var viewModel = new IndexHandler(new InMemorySession()).Handle(new IndexQuery());
             return View(viewModel);
         }
 

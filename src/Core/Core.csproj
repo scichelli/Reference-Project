@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\AudioBook.cs" />
+    <Compile Include="Domain\Book.cs" />
     <Compile Include="Domain\Duration.cs" />
+    <Compile Include="Persistence\ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

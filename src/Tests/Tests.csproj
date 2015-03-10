@@ -54,6 +54,7 @@
     <Compile Include="CustomConvention.cs" />
     <Compile Include="Domain\AudioBookTests.cs" />
     <Compile Include="Domain\DurationTests.cs" />
+    <Compile Include="Features\Library\IndexHandlerTests.cs" />
     <Compile Include="Infrastructure\AutoFilledParameterSourceTests.cs" />
     <Compile Include="Infrastructure\IsbnGeneratorTests.cs">
       <SubType>Code</SubType>
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{F067D483-9E75-41E1-90EA-6B094F61CB61}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI\UI.csproj">
+      <Project>{69BB74F3-DCE2-4A34-AC7E-E725FBE703A0}</Project>
+      <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
