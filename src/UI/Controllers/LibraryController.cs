@@ -6,9 +6,11 @@
 
     public class LibraryController : Controller
     {
+        private static readonly ISession _session = new InMemorySession();
+
         public ViewResult Index()
         {
-            var viewModel = new IndexHandler(new InMemorySession()).Handle(new IndexQuery());
+            var viewModel = new IndexHandler(_session).Handle(new IndexQuery());
             return View(viewModel);
         }
 
