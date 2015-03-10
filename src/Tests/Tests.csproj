@@ -54,6 +54,8 @@
     <Compile Include="CustomConvention.cs" />
     <Compile Include="Domain\AudioBookTests.cs" />
     <Compile Include="Domain\DurationTests.cs" />
+    <Compile Include="Features\Library\AddEditHandlerTests.cs" />
+    <Compile Include="Features\Library\FakeSession.cs" />
     <Compile Include="Features\Library\IndexHandlerTests.cs" />
     <Compile Include="Infrastructure\AutoFilledParameterSourceTests.cs" />
     <Compile Include="Infrastructure\IsbnGeneratorTests.cs">

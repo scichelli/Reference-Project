@@ -1,7 +1,6 @@
 ﻿namespace Headspring.Labs.UI.Controllers
 {
     using System.Web.Mvc;
-    using Core.Domain;
     using Core.Persistence;
     using Features.Library;
 
@@ -23,7 +22,7 @@
         [HttpPost]
         public ActionResult Add(AddEditViewModel model)
         {
-            _session.Add(new Book {Title = model.Title});
+            new AddEditHandler(_session).Handle(model);
             return RedirectToAction("Index");
         }
     }

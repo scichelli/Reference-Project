@@ -139,6 +139,7 @@
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
     <Compile Include="Extensions\FeatureViewLocationRazorViewEngine.cs" />
+    <Compile Include="Features\Library\AddEditHandler.cs" />
     <Compile Include="Features\Library\AddEditViewModel.cs" />
     <Compile Include="Features\Library\IndexHandler.cs" />
     <Compile Include="Features\Library\IndexViewModel.cs" />
