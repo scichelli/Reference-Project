@@ -7,6 +7,7 @@
     public interface ISession
     {
         IEnumerable<Book> GetAll();
+        void Add(Book book);
     }
 
     public class InMemorySession : ISession
@@ -23,6 +24,11 @@
         public IEnumerable<Book> GetAll()
         {
             return Books;
+        }
+
+        public void Add(Book book)
+        {
+            Books.Add(book);
         }
     }
 }
