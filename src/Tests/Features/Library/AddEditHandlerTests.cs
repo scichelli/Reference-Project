@@ -1,10 +1,7 @@
 ﻿namespace Headspring.Labs.Tests.Features.Library
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using Core.Domain;
-    using Core.Persistence;
     using Should;
     using UI.Features.Library;
 
