@@ -2,6 +2,7 @@
 {
     using System;
     using Fixie;
+    using UI.DependencyResolution;
 
     public class CustomConvention : Convention
     {
@@ -16,8 +17,18 @@
             Parameters
                 .Add<AutoFilled>();
 
+            ClassExecution
+                .CreateInstancePerClass()
+                .UsingFactory(GetFromContainer);
+
             CaseExecution
                 .Skip(DeveloperToolsWhenRunningTheWholeSuite);
+        }
+
+        private object GetFromContainer(Type testClass)
+        {
+            var container = IoC.Initialize();
+            return container.GetInstance(testClass);
         }
 
         private bool DeveloperToolsWhenRunningTheWholeSuite(Case testCase)

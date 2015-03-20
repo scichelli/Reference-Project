@@ -41,6 +41,14 @@
     <Reference Include="Should">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +62,9 @@
     <Compile Include="CustomConvention.cs" />
     <Compile Include="Domain\AudioBookTests.cs" />
     <Compile Include="Domain\DurationTests.cs" />
+    <Compile Include="Features\Library\AddEditHandlerTests.cs" />
+    <Compile Include="Features\Library\FakeSession.cs" />
+    <Compile Include="Features\Library\IndexHandlerTests.cs" />
     <Compile Include="Infrastructure\AutoFilledParameterSourceTests.cs" />
     <Compile Include="Infrastructure\IsbnGeneratorTests.cs">
       <SubType>Code</SubType>
@@ -67,6 +78,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{F067D483-9E75-41E1-90EA-6B094F61CB61}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI\UI.csproj">
+      <Project>{69BB74F3-DCE2-4A34-AC7E-E725FBE703A0}</Project>
+      <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

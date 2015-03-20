@@ -1,0 +1,12 @@
+﻿@model Headspring.Labs.UI.Features.Library.IndexViewModel
+
+@{ ViewBag.Title = "Library";}
+
+@Html.ActionLink("Add", "Add")
+
+<ul>
+    @foreach (var book in Model.Books)
+    {
+        <li>@book.Title</li>
+    }
+</ul>
